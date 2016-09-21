@@ -1,6 +1,9 @@
 var router = require('express').Router();
 var Genre = require('../models/genre');
 
+/**
+* Get genres
+*/
 router.get('/', function(req, res) {
 
   Genre.find(function(err, genres){
@@ -13,6 +16,9 @@ router.get('/', function(req, res) {
 
 });
 
+/**
+* Get genre by ID
+*/
 router.get('/:id', function(req, res) {
 
   Genre.findById(req.params.id,function(err, genre) {
@@ -25,6 +31,9 @@ router.get('/:id', function(req, res) {
 
 });
 
+/**
+* Add genre
+*/
 router.post('/', function(req, res) {
 
   var genre = req.body;
@@ -38,6 +47,9 @@ router.post('/', function(req, res) {
 
 });
 
+/**
+* Update genre
+*/
 router.put('/:id', function(req, res) {
 
   var id = req.params.id;
@@ -51,6 +63,9 @@ router.put('/:id', function(req, res) {
 
 });
 
+/**
+* Delete genre by ID
+*/
 router.delete('/:id', function(req, res) {
   var id = req.params.id;
   Genre.remove(id, function(err, genre){

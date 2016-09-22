@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-//Genre schema
+//Book schema
 
 var bookSchema = mongoose.Schema({
   title:{
@@ -42,4 +42,4 @@ var bookSchema = mongoose.Schema({
   }
 });
 
-var Book = module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Book', bookSchema);

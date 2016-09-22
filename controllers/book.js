@@ -1,6 +1,9 @@
 var router = require('express').Router();
 var Book = require('../models/book');
 
+/**
+* Get Books
+*/
 router.get('/', function(req, res) {
 
   Book.find(function(err, books){
@@ -13,6 +16,9 @@ router.get('/', function(req, res) {
 
 });
 
+/**
+* Get Book by ID
+*/
 router.get('/:id', function(req, res) {
 
   Book.findById(req.params.id,function(err, book){
@@ -24,6 +30,9 @@ router.get('/:id', function(req, res) {
 
 });
 
+/**
+* Add Book
+*/
 router.post('/', function(req, res) {
 
   var book = req.body;
@@ -36,6 +45,9 @@ router.post('/', function(req, res) {
 
 });
 
+/**
+* Update Book
+*/
 router.put('/:id', function(req, res) {
 
   var id = req.params._id;
@@ -61,6 +73,9 @@ router.put('/:id', function(req, res) {
 
 });
 
+/**
+* Delete Book by ID
+*/
 router.delete('/:id', function(req, res) {
 
   var id = req.params._id;
@@ -73,19 +88,5 @@ router.delete('/:id', function(req, res) {
   });
 
 });
-module.exports = router;
 
-module.exports.updateBook = function(id,book,options,callback){
-  var query = { _id : id};
-  var update = {
-    title : book.title,
-    genre : book.gener,
-    description : book.description,
-    author : book.author,
-    publisher : book.publisher,
-    pages : book.pages,
-    image_url : book.image_url,
-    buy_url : book.buy_url
-  }
-  Book.findOneAndUpdate(query, update, options, callback);
-}
+module.exports = router;

@@ -76,10 +76,11 @@ router.put('/:id', function(req, res) {
 /**
 * Delete Book by ID
 */
-router.delete('/:id', function(req, res) {
+router.delete('/:_id', function(req, res) {
 
   var id = req.params._id;
-  Book.remove(id, function(err, book){
+  query = { _id : id };
+  Book.remove(query, function(err, book){
     if(err){
       throw err;
     }

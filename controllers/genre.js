@@ -66,9 +66,10 @@ router.put('/:id', function(req, res) {
 /**
 * Delete genre by ID
 */
-router.delete('/:id', function(req, res) {
-  var id = req.params.id;
-  Genre.remove(id, function(err, genre){
+router.delete('/:_id', function(req, res) {
+  var id = req.params._id;
+  query = { _id:id };
+  Genre.remove(query, function(err, genre){
     if(err){
       throw err;
     }

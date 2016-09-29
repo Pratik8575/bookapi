@@ -68,6 +68,7 @@ router.put('/:id', function(req, res) {
     if(err){
       throw err;
     }
+
     res.json(book);
   });
 
@@ -78,8 +79,8 @@ router.put('/:id', function(req, res) {
 */
 router.delete('/:id', function(req, res) {
 
-  var id = req.params._id;
-  Book.remove(id, function(err, book){
+  var id = req.params.id;
+  Book.findOneAndRemove(id, function(err, book){
     if(err){
       throw err;
     }

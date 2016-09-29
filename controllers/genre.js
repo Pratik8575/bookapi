@@ -69,7 +69,7 @@ router.put('/:id', function(req, res) {
 router.delete('/:_id', function(req, res) {
   var id = req.params._id;
   query = { _id:id };
-  Genre.remove(query, function(err, genre){
+  Genre.findOneAndRemove(query, function(err, genre){
     if(err){
       throw err;
     }
